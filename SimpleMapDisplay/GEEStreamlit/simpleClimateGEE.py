@@ -18,7 +18,7 @@ data_ds = xr.open_dataset(data, engine = "ee")
 cel_data = data_ds - 273.15
 
 # calculate longterm average temperature and the temperature anomaly
-yearly_mean = temp_ds.resample(time = 'YE').mean('time')
+yearly_mean = data_ds.resample(time = 'YE').mean('time')
 longterm_mean = yearly_mean.resample.mean('time')
 anomaly = yearly_mean - longterm_mean
 
