@@ -1,11 +1,8 @@
 import streamlit as slt
-import ee
-import xarray as xr
 import matplotlib.pyplot as plt
+import SimpleMapDisplay.GEEStreamlit.LandSurfaceAnomaly.config as config
 
 # authenticate and initialize gee
-ee.Authenticate()
-ee.Initialize(project = "ee-subsonic", opt_url = 'https://earthengine-highvolume.googleapis.com')
 
 # open image collection
 data = ee.ImageCollection("ECMWF/ERA5_LAND/DAILY_AGGR").filterDate("2010","2025")\
